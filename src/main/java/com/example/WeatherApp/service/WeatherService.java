@@ -51,7 +51,7 @@ public class WeatherService {
     private String callWeatherApi(String location, String date1, String date2, String unitGroup, String include) {
         UriComponentsBuilder builder = UriComponentsBuilder
                 .fromUriString("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + location)
-                .queryParam("key", apiKey);
+                .queryParam("key", apikey);
 
         if (date1 != null && !date1.isEmpty()) builder.queryParam("date1", date1);
         if (date2 != null && !date2.isEmpty()) builder.queryParam("date2", date2);
