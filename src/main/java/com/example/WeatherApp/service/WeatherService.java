@@ -6,6 +6,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.WeatherApp.model.Cities;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 
@@ -18,7 +19,7 @@ public class WeatherService {
     @Value("${spring.weatherAPIKEY}")
     private String apikey;
 
-    public WeatherService(RedisTemplate<String, String> redisTemplate) {
+    public WeatherService(@Qualifier("myStringRedisTemplate") RedisTemplate<String, String> redisTemplate) {
         this.redisTemplate = redisTemplate;
         this.restTemplate = new RestTemplate();
     }
