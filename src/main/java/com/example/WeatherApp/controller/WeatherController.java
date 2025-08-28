@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.WeatherApp.service.WeatherService;
 
 @RestController
-@CrossOrigin(origins = "http://127.0.0.1:5173")
+@CrossOrigin(origins = "https://parkparkweatherapp.netlify.app/")
 public class WeatherController {
 
     private final WeatherService weatherService;
@@ -25,13 +25,11 @@ public class WeatherController {
             @RequestParam(required = false) String unitGroup,
             @RequestParam(required = false) String include) {
 
-        // Call the service, which will check Redis first
+
         String result = weatherService.getWeather(location, date1, date2, unitGroup, include);
 
-        // Optional: log to console
-        // System.err.println(result);
 
-        return result;  // Returns JSON from API or cached version
+        return result; 
     }
 }
 

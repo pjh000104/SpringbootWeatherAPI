@@ -14,7 +14,7 @@ public class WebConfig {
             @Override
             public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping("/weather")
-                        .allowedOrigins("http://127.0.0.1:5173") // your React app
+                        .allowedOrigins("https://parkparkweatherapp.netlify.app/") 
                         .allowedMethods("GET");
             }
         };

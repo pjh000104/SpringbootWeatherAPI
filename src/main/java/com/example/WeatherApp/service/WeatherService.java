@@ -59,7 +59,7 @@ public class WeatherService {
         if (unitGroup != null && !unitGroup.isEmpty()) builder.queryParam("unitGroup", unitGroup);
         if (include != null && !include.isEmpty()) builder.queryParam("include", include);
 
-        builder.queryParam("contentType", "json"); // always return JSON
+        builder.queryParam("contentType", "json"); 
         String url = builder.toUriString();
         return restTemplate.getForObject(url, String.class);
     }
