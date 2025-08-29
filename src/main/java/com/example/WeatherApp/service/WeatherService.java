@@ -6,6 +6,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.WeatherApp.model.Cities;
 
+import java.util.concurrent.TimeUnit;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -44,7 +46,7 @@ public class WeatherService {
         String apiResult = callWeatherApi(location, date1, date2, unitGroup, include);
 
         // Store result in Redis
-        redisTemplate.opsForValue().set(cacheKey, apiResult);
+        redisTemplate.opsForValue().set(cacheKey, apiResult, 2, TimeUnit.HOURS);
 
         return apiResult;
     }
